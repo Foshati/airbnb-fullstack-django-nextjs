@@ -49,9 +49,16 @@ INSTALLED_APPS = [
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 SITE_ID = 1
-ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = "optional"
+AUTH_USER_MODEL = "api.User"  # AUTH_USER_MODEL = 'yourApp.YourCustomUser'
+
+
+# ACCOUNT_USERNAME_REQUIRED = True
+# ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_SESSION_REMEMBER = False
+# ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
