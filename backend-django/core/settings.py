@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
 ]
 
-
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 SITE_ID = 1
 ACCOUNT_AUTHENTICATION_METHOD = "username"
@@ -72,12 +71,23 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",  # Add AccountMiddleware to MIDDLEWARE:
 ]
 
+
+# Use Django's built-in token-based authentication
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+}
+
+
+REST_AUTH = {
+    "REGISTER_SERIALIZER": "api.serializers.CustomRegisterSerializer",
+}
+
 # CORS
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
-
-
 ROOT_URLCONF = "core.urls"
 
 TEMPLATES = [
@@ -150,10 +160,3 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.TokenAuthentication",
-    ],
-}
