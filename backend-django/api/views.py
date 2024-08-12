@@ -34,3 +34,18 @@ class BookingListCreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(host=self.request.user)
+
+
+class BookingRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
+
+    def get_queryset(self):
+        return Booking.objects.filter(guest=self.request.user)
+
+
+class UserDetailsView(views.APIView):
+    def get(self, request, token):
+        user = get_user_model().objects.get(auth_token=token)
+        return Response({"username": user.username, "is_host": user.is_host})
