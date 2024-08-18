@@ -87,6 +87,7 @@ REST_AUTH = {
 # CORS
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "http://localhost:8080",
 ]
 ROOT_URLCONF = "core.urls"
 

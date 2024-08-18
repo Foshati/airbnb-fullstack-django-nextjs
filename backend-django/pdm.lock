@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:f18936f784ec9f6bee55a7e8cce135beb7e48b50fc720cc98a299cc4c434b050"
+content_hash = "sha256:8dc8874eca817cf6dddd310642f14336c5d78d3d0bfbdf3d399922cd20d0b5d7"
 
 [[metadata.targets]]
 requires_python = ">=3.12"
@@ -142,9 +142,26 @@ version = "6.0.0"
 requires_python = ">=3.8"
 summary = "Authentication and Registration in Django Rest Framework"
 groups = ["default"]
+marker = "python_full_version == \"3.12.2\""
 dependencies = [
     "Django<6.0,>=3.2",
     "djangorestframework>=3.13.0",
+]
+files = [
+    {file = "dj-rest-auth-6.0.0.tar.gz", hash = "sha256:760b45f3a07cd6182e6a20fe07d0c55230c5f950167df724d7914d0dd8c50133"},
+]
+
+[[package]]
+name = "dj-rest-auth"
+version = "6.0.0"
+extras = ["with-social"]
+requires_python = ">=3.8"
+summary = "Authentication and Registration in Django Rest Framework"
+groups = ["default"]
+marker = "python_full_version == \"3.12.2\""
+dependencies = [
+    "dj-rest-auth==6.0.0",
+    "django-allauth<0.62.0,>=0.56.0",
 ]
 files = [
     {file = "dj-rest-auth-6.0.0.tar.gz", hash = "sha256:760b45f3a07cd6182e6a20fe07d0c55230c5f950167df724d7914d0dd8c50133"},
@@ -220,6 +237,7 @@ version = "3.15.2"
 requires_python = ">=3.8"
 summary = "Web APIs for Django, made easy."
 groups = ["default"]
+marker = "python_full_version == \"3.12.2\""
 dependencies = [
     "backports-zoneinfo; python_version < \"3.9\"",
     "django>=4.2",
